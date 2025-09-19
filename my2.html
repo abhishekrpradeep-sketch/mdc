@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Personal Website</title>
+
+
+
+
+
+
+
+
+<style>
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1855d9 0%, #2fd8de 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  /* Header */
+  header {
+    background: #193463;
+    color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+  }
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  nav ul li {
+  }
+  nav ul li button {
+    background: transparent;
+    border: 2px solid transparent;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  nav ul li button:hover,
+  nav ul li button.active {
+    background: #fff;
+    color: #1e3c72;
+    border-color: #fff;
+  }
+  /* Content */
+  main {
+    flex-grow: 1;
+    background: #fff;
+    margin: 2rem auto;
+    padding: 2rem 3rem;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+  main h2 {
+    margin-bottom: 1rem;
+    color: #1e3c72;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  main p, main ul {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  main ul {
+    padding-left: 1.2rem;
+  }
+  main ul li {
+    margin-bottom: 0.6rem;
+  }
+  /* Footer */
+  footer {
+    background: #193463;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    main {
+      padding: 1rem 1.5rem;
+      margin: 1rem;
+    }
+    nav ul {
+      justify-content: center;
+    }
+  }
+</style>
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+<header>
+  <h1>Abhishek's Personal Website</h1>
+  <nav>
+    <ul>
+      <li><button class="menu-btn active" data-section="home">Home</button></li>
+      <li><button class="menu-btn" data-section="hobbies">My Hobbies</button></li>
+      <li><button class="menu-btn" data-section="qualifications">Qualifications</button></li>
+      <li><button class="menu-btn" data-section="activities">Extra Curricular</button></li>
+      <li><button class="menu-btn" data-section="parents">Parents Details</button></li>
+      <li><button class="menu-btn" data-section="contact">Contact Me</button></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+<main id="content">
+  <!-- Content will load here dynamically -->
+
+</main>
+
+<footer>
+  &copy; 2025. All rights reserved.<br>abhishekrpradeep@gmail.com
+</footer>
+
+<script>
+  const content = document.getElementById('content');
+
+  const sections = {
+    home: `
+      <h2>Hey,Welcome to My Website!</h2>
+      <p>Hello! I'm Abhishek R Pradeep.I'm glad you're here. This website shares a little bit about me, my interests, and my background. Use the menu above to explore. :)</p><br><br> <center><img src="img1.jpg" height="350"></img></center>
+    `,
+    hobbies: `
+      <h2>My Hobbies</h2>
+      <ul>
+        <li>Music: I love listening to music.</li>
+        <li>Reading: Fiction and non-fiction books are my go-to for relaxation.</li>
+        <li>Workout: It's one of my go-to things to do.</li>
+        <li>Video Games: I spend a little of time playing games.</li>
+      </ul>
+    `,
+    qualifications: `
+      <h2>Qualifications</h2>
+      <ul>
+        <li>SSLC - Silver Hills HSS, Calicut (2023)</li>
+        <li>PLUS TWO - GMBHSS Kunnamkulam, Thrissur (2025)</li>
+        <li>BBA - On process (2025 ~ )</li>
+      </ul>
+    `,
+    activities: `
+      <h2>Extra Curricular Activities</h2>
+      <ul>
+        <li>National participation in Basketball</li>
+        <li>NSS member in previous schools</li>
+        <li>Organized basketball coaching camp for kids</li>
+        <li>Participated in inter-college, inter-state sports, arts events</li>
+      </ul><br><br><center><img src="img2.jpg" height="350"></img></center>
+    `,
+    parents: `
+      <h2>Parents Details</h2>
+      <p><strong>Father:</strong> Pradeep KV - Electrician</p>
+      <p><strong>Mother:</strong> Remya MK - House wife</p>
+      <p>Both have been my greatest support throughout my journey.</p>
+    `,
+    contact: `
+      <h2>Contact Me</h2>
+      <form id="contactForm" style="max-width:400px; margin:auto;">
+        <label for="name" style="display:block; margin-bottom:0.5rem;">Name:</label>
+        <input type="text" id="name" name="name" required style="width:100%; padding:0.5rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;">
+        
+        <label for="email" style="display:block; margin-bottom:0.5rem;">Email:</label>
+        <input type="email" id="email" name="email" required style="width:100%; padding:0.5rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;">
+        
+        <label for="message" style="display:block; margin-bottom:0.5rem;">Message:</label>
+        <textarea id="message" name="message" rows="4" required style="width:100%; padding:0.5rem; margin-bottom:1rem; border-radius:6px; border:1px solid #ccc;"></textarea>
+        
+        <button type="submit" style="background:#1e3c72; color:#fff; padding:0.7rem 1.5rem; border:none; border-radius:6px; cursor:pointer; font-weight:700; font-size:1rem;">
+          Send
+        </button>
+      </form>
+      <p id="formMessage" style="text-align:center; margin-top:1rem; color:green; font-weight:600;"></p>
+    `
+  };
+
+  function loadSection(section) {
+    content.innerHTML = sections[section];
+    if(section === 'contact') {
+      const form = document.getElementById('contactForm');
+      const formMessage = document.getElementById('formMessage');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        // Simple form validation could be expanded
+        formMessage.textContent = `Thank you, ${form.name.value}! Your message has been received.`;
+        form.reset();
+      });
+    }
+  }
+
+  const buttons = document.querySelectorAll('.menu-btn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      buttons.forEach(b => b.classList.remove('active'));
+      // Add active to clicked button
+      btn.classList.add('active');
+      // Load content
+      loadSection(btn.dataset.section);
+    });
+  });
+
+  // Load home by default
+  loadSection('home');
+</script>
+
+</body>
+</html>
